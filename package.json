@@ -1,6 +1,6 @@
 {
   "name": "telegraf-aws",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "AWS Lambda helper for Telegraf bot framework",
   "main": "index.js",
   "repository": "https://github.com/truecarry/telegraf-aws",
