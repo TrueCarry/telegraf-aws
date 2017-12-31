@@ -27,7 +27,6 @@ module.exports = function (bot, _options) {
     let bodySent = false
 
     let endTimer = setTimeout(() => {
-      console.log('End by timeout')
       callback(null, {
         statusCode: 200,
         body: ''
@@ -47,7 +46,6 @@ module.exports = function (bot, _options) {
     }
 
     bot.handleUpdate(update, returnObj).then(() => {
-      console.log('HandleUpdate promise done')
       if (bodySent) return
 
       clearTimeout(endTimer)
@@ -56,7 +54,6 @@ module.exports = function (bot, _options) {
         body: ''
       })
     }).catch((error) => {
-      console.error('Bot error occurred', error)
       if (bodySent) return
 
       clearTimeout(endTimer)
