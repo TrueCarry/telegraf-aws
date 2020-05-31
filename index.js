@@ -2,10 +2,10 @@ module.exports = function (bot, _options) {
   let options = {
     timeout: 500
   }
-  
+
   options = Object.assign(options, _options)
 
-  return function (event, callback) {
+  return function (event, context, callback) {
     if (!event || !event.body) {
       return callback(null, {
         statusCode: 200,
@@ -39,7 +39,8 @@ module.exports = function (bot, _options) {
         clearTimeout(endTimer)
         callback(null, {
           statusCode: 200,
-          body: data
+          body: data,
+          headers: { 'content-type': 'application/json' }
         })
       },
       headersSent: true,
